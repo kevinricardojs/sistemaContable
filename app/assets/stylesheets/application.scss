@@ -1,0 +1,10 @@
+@import "materialize/components/color";
+$primary-color: color("red", "accent-3") !default;
+$secondary-color: color("blue-grey", "darken-4") !default;
+@import 'materialize';
+@import "materialize/extras/nouislider";
+
+@import "material/material-icons";
+@import "material/roboto";
+
+

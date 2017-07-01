@@ -1,0 +1,152 @@
+<div class="row">
+  <div class="col s12 m4">
+    <div class="card blue-grey lighten-5">
+      <div class="card-content blue-grey-text center-align">
+        <span class="card-title">Catálogos</span>
+        <p> <i class="material-icons large ">note_add</i></p>
+      </div>
+      <div class="row">
+
+        <span class="col s3 center-align blue-grey darken-3 dropdown-button waves-effect waves-effect" data-activates="contribuyentes-drop ">
+          <a href="#contribuyente" class="white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contribuyentes"> 
+            <i class="material-icons small">person_add</i>
+          </a>
+
+          <ul id='contribuyentes-drop' class='dropdown-content'>
+            <li class="waves-effect waves-light">
+             <%= link_to new_contribuyente_path, class:"blue-text darken-3" do %>
+             <i class="material-icons tiny ">add</i> Añadir
+             <%end%>
+           </li>
+           <li class="divider"></li>
+           <li class="waves-effect waves-light">
+             <%= link_to contribuyentes_path, class:"teal-text darken-3" do %>
+             <i class="material-icons tiny ">view_list</i> Ver
+             <%end%>
+           </li>          
+         </ul>
+       </span>
+
+       <span class="col s3 center-align blue-grey darken-3 dropdown-button waves-effect" data-activates="establecimientos-drop">
+        <a href="#establecimiento" class="white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Establecimientos"> 
+          <i class="material-icons small">business</i>
+        </a>
+
+        <ul id='establecimientos-drop' class='dropdown-content'>
+         <li class="waves-effect waves-light">
+           <%= link_to new_contribuyente_path, class:"blue-text darken-3" do %>
+           <i class="material-icons tiny ">add</i> Añadir
+           <%end%>
+         </li>
+         <li class="divider"></li>
+         <li class="waves-effect waves-light">
+           <%= link_to contribuyentes_path, class:"teal-text darken-3" do %>
+           <i class="material-icons tiny ">view_list</i> Ver
+           <%end%>
+         </li>          
+       </ul>
+     </span>
+     <span class="col s3 center-align blue-grey darken-3 dropdown-button waves-effect" data-activates="proveedores-drop">
+      <a href="#proveedores" class="white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Proveedores"> 
+        <i class="material-icons small">next_week</i>
+      </a>
+      <ul id='proveedores-drop' class='dropdown-content'>
+        <li class="waves-effect waves-light">
+         <%= link_to new_contribuyente_path, class:"blue-text darken-3" do %>
+         <i class="material-icons tiny ">add</i> Añadir
+         <%end%>
+       </li>
+       <li class="divider"></li>
+       <li class="waves-effect waves-light">
+         <%= link_to contribuyentes_path, class:"teal-text darken-3" do %>
+         <i class="material-icons tiny ">view_list</i> Ver
+         <%end%>
+       </li>          
+     </ul>
+   </span>
+   <span class="col s3 center-align blue-grey darken-3 dropdown-button waves-effect" data-activates="tipoGasto-drop">
+    <a href="#tipoGasto" class="white-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Tipo de Gasto"> 
+      <i class="material-icons small">payment</i>
+    </a>
+
+    <ul id='tipoGasto-drop' class='dropdown-content'>
+      <li class="waves-effect waves-light">
+       <%= link_to new_contribuyente_path, class:"blue-text darken-3" do %>
+       <i class="material-icons tiny ">add</i> Añadir
+       <%end%>
+     </li>
+     <li class="divider"></li>
+     <li class="waves-effect waves-light">
+       <%= link_to contribuyentes_path, class:"teal-text darken-3" do %>
+       <i class="material-icons tiny ">view_list</i> Ver
+       <%end%>
+     </li>          
+   </ul>
+ </span>
+
+</div>
+
+</div>
+</div>
+<div class="col s12 m4">
+  <div class="card blue-grey lighten-5">
+    <div class="card-content blue-grey-text center-align">
+      <span class="card-title">Libros</span>
+      <p> <i class="material-icons large ">local_library</i></p>
+    </div>
+    <div class="row">
+      <a href="#" class="col s4 center-align teal darken-3 white-text tooltipped
+      tooltipped waves-effect" data-position="bottom" data-delay="50" data-tooltip="Añadir Compra">
+      <i class="material-icons small">add_shopping_cart</i>
+    </a>
+    <a href="#" class="col s4 center-align teal darken-3 white-text tooltipped
+    tooltipped waves-effect" data-position="bottom" data-delay="50" data-tooltip="Añadir Venta">
+    <i class="material-icons small">assignment_return</i>
+  </a>
+  <a href="#" class="col s4 center-align teal darken-3 white-text tooltipped
+  tooltipped waves-effect" data-position="bottom" data-delay="50" data-tooltip="Partidas de Ajuste">
+  <i class="material-icons small">low_priority</i>
+</a>
+</div>
+</div>
+</div> 
+<div class="col s12 m4">
+  <div class="card blue-grey lighten-5">
+    <div class="card-content blue-grey-text center-align">
+      <span class="card-title">Operaciones especiales!</span>
+      <p> <i class="material-icons large ">lock</i></p>
+      <div class="row">
+        <div class="input-field col s12 drop-inicio">
+          <select class="blue-grey-text">
+            <option value="" disabled selected>Selecciona un Libro</option>
+            <option value="balance_de_saldos">Libro Balance</option>
+            <option value="mayor">Libro Mayor</option>
+            <option value="balance_de_saldos">Libro Balance</option>
+            <option value="es_resultados">Estado de Resultados</option>
+          </select>
+          <label>Libro</label>
+        </div>
+        <div class="input-field col s12 drop-inicio">
+          <select class="blue-grey-text">
+            <option value="" disabled selected>Selecciona un Mes</option>
+            <option value="01">Enero</option>
+            <option value="02">Febrero</option>
+            <option value="03">Marzo</option>
+            <option value="04">Abril</option>
+            <option value="05">Mayo</option>
+            <option value="06">Junio</option>
+            <option value="07">Julio</option>
+            <option value="08">Agosto</option>
+            <option value="09">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+          </select>
+          <label>Mes</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

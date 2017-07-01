@@ -1,0 +1,79 @@
+<%= form_for(@contribuyente) do |f| %>
+<% if @contribuyente.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@contribuyente.errors.count, "error") %> prohibited this contribuyente from being saved:</h2>
+
+  <ul>
+    <% @contribuyente.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="col s12">
+
+    <div class="row">
+      <div class="input-field col s4">
+        <i class="material-icons prefix">vpn_key</i>
+        <%= f.text_field :nit %>
+        <%= f.label :nit %>
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">account_box</i>
+        <%= f.text_field :nombre %>
+        <%= f.label "Nombre Completo" %>
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">phone</i>
+        <%= f.text_field :telefono %>
+        <%= f.label :telefono %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
+        <i class="material-icons prefix">map</i>
+        <%= f.text_field :departamento %>
+        <%= f.label :departamento %>
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">place</i>
+        <%= f.text_field :municipio %>
+        <%= f.label :municipio %>
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">terrain</i>
+        <%= f.text_field :colonia %>
+        <%= f.label :colonia %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s2 offset-s3">
+        <%= f.label :calle %>
+        <%= f.text_field :calle %>
+      </div>
+      <div class="input-field col s2">
+        <%= f.label :no_casa %>
+        <%= f.text_field :no_casa %>
+      </div>
+      <div class="input-field col s2">
+        <%= f.label :zona %>
+        <%= f.number_field :zona %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <%= f.label :tipo_contribuyente %>
+        <%= f.number_field :tipo_contribuyente %>
+      </div>
+    </div>
+    <div class="actions row">
+
+    <div class="col s4 offset-s4 center-align">
+        <%= f.submit class:"btn waves-effect waves-teal", value:"Enviar" %>
+    </div>
+    </div>
+  </div>
+</div>
+<% end %>

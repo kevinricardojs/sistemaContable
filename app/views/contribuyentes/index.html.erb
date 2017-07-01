@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Contribuyentes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nit</th>
+      <th>Nombre</th>
+      <th>Calle</th>
+      <th>No casa</th>
+      <th>Zona</th>
+      <th>Colonia</th>
+      <th>Departamento</th>
+      <th>Municipio</th>
+      <th>Telefono</th>
+      <th>Tipo contribuyente</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contribuyentes.each do |contribuyente| %>
+      <tr>
+        <td><%= contribuyente.nit %></td>
+        <td><%= contribuyente.nombre %></td>
+        <td><%= contribuyente.calle %></td>
+        <td><%= contribuyente.no_casa %></td>
+        <td><%= contribuyente.zona %></td>
+        <td><%= contribuyente.colonia %></td>
+        <td><%= contribuyente.departamento %></td>
+        <td><%= contribuyente.municipio %></td>
+        <td><%= contribuyente.telefono %></td>
+        <td><%= contribuyente.tipo_contribuyente %></td>
+        <td><%= link_to 'Show', contribuyente %></td>
+        <td><%= link_to 'Edit', edit_contribuyente_path(contribuyente) %></td>
+        <td><%= link_to 'Destroy', contribuyente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contribuyente', new_contribuyente_path %>
