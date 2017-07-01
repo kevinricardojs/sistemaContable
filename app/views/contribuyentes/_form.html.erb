@@ -17,62 +17,61 @@
     <div class="row">
       <div class="input-field col s4">
         <i class="material-icons prefix">vpn_key</i>
-        <%= f.text_field :nit %>
+        <%= f.text_field :nit, required: true %>
         <%= f.label :nit %>
       </div>
       <div class="input-field col s4">
         <i class="material-icons prefix">account_box</i>
-        <%= f.text_field :nombre %>
+        <%= f.text_field :nombre, required: true %>
         <%= f.label "Nombre Completo" %>
       </div>
       <div class="input-field col s4">
         <i class="material-icons prefix">phone</i>
-        <%= f.text_field :telefono %>
+        <%= f.text_field :telefono, required: true %>
         <%= f.label :telefono %>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s4">
         <i class="material-icons prefix">map</i>
-        <%= f.text_field :departamento %>
+        <%= f.text_field :departamento, required: true %>
         <%= f.label :departamento %>
       </div>
       <div class="input-field col s4">
         <i class="material-icons prefix">place</i>
-        <%= f.text_field :municipio %>
+        <%= f.text_field :municipio, required: true %>
         <%= f.label :municipio %>
       </div>
       <div class="input-field col s4">
         <i class="material-icons prefix">terrain</i>
-        <%= f.text_field :colonia %>
+        <%= f.text_field :colonia, required: true %>
         <%= f.label :colonia %>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s2 offset-s3">
         <%= f.label :calle %>
-        <%= f.text_field :calle %>
+        <%= f.text_field :calle, required: true %>
       </div>
       <div class="input-field col s2">
         <%= f.label :no_casa %>
-        <%= f.text_field :no_casa %>
+        <%= f.text_field :no_casa, required: true %>
       </div>
       <div class="input-field col s2">
         <%= f.label :zona %>
-        <%= f.number_field :zona %>
+        <%= f.number_field :zona, required: true %>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s4 offset-s4">
         <%= f.label :tipo_contribuyente %>
-        <%= f.number_field :tipo_contribuyente %>
+        <%= f.number_field :tipo_contribuyente, required: true %>
       </div>
     </div>
     <div class="actions row">
-
-    <div class="col s4 offset-s4 center-align">
-        <%= f.submit class:"btn waves-effect waves-teal", value:"Enviar" %>
-    </div>
+      <div class="col s4 offset-s4 center-align">
+      <%= f.submit class:"btn waves-effect waves-teal", value:"Enviar" %>
+      </div>
     </div>
   </div>
 </div>
