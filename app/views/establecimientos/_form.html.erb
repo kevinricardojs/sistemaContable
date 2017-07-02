@@ -1,0 +1,78 @@
+<%= form_for(@establecimiento) do |f| %>
+<% if @establecimiento.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@establecimiento.errors.count, "error") %> prohibited this establecimiento from being saved:</h2>
+
+  <ul>
+    <% @establecimiento.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <div class="input-field col s4 offset-s4">
+        <i class="material-icons prefix">account_circle</i>
+        <%= f.label :contribuyente_id %>
+        <%  if @contribuyentes.any? %>
+        <%= select("establecimiento", "contribuyente_id", Contribuyente.all.collect {|c| [ c.nit + " – "+c.nombre , c.id ] }, { include_blank: true },class:"form-control")%>  
+        <% else %>
+        <%= content_tag(:select, "Nit",class:"form-control", disabled:true) do %>
+        <%= content_tag(:option, "Registra mas Contribuyentes para crear Establecimientos" ,class:"disabled", name: :contribuyente_id) %>
+        <% end  %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+     <div class="input-field col s6">
+       <i class="material-icons prefix">business</i>
+       <%= f.text_field :nombre, required: true %>
+       <%= f.label "Nombre Completo" %>
+     </div>
+     <div class="input-field col s6">
+      <i class="material-icons prefix">phone</i>
+      <%= f.text_field :telefono, required: true %>
+      <%= f.label :telefono %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s4">
+      <i class="material-icons prefix">map</i>
+      <%= f.text_field :departamento, required: true %>
+      <%= f.label :departamento %>
+    </div>
+    <div class="input-field col s4">
+      <i class="material-icons prefix">place</i>
+      <%= f.text_field :municipio, required: true %>
+      <%= f.label :municipio %>
+    </div>
+    <div class="input-field col s4">
+      <i class="material-icons prefix">terrain</i>
+      <%= f.text_field :colonia, required: true %>
+      <%= f.label :colonia %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s2 offset-s3">
+      <%= f.label :calle %>
+      <%= f.text_field :calle, required: true %>
+    </div>
+    <div class="input-field col s2">
+      <%= f.label :numero_casa %>
+      <%= f.text_field :numero_casa, required: true %>
+    </div>
+    <div class="input-field col s2">
+      <%= f.label :zona %>
+      <%= f.number_field :zona, required: true %>
+    </div>
+  </div>
+  <div class="actions row">
+    <div class="col s4 offset-s4 center-align">
+      <%= f.submit class:"btn waves-effect waves-teal", value:"Enviar" %>
+    </div>
+  </div>
+</div>
+</div>
+<% end %>

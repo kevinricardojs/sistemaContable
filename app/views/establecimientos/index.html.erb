@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Establecimientos Registrados</h1>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Nombre del Establecimiento</th>
+      <th>Telefono</th>
+      <th>Colonia</th>
+      <th>Departamento</th>
+      <th>Municipio</th>
+      <th>Zona</th>
+      <th>Calle</th>
+      <th>Numero casa</th>
+      <th>Contribuyente</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @establecimientos.each do |establecimiento| %>
+    <tr>
+      <td><%= establecimiento.nombre %></td>
+      <td><%= establecimiento.telefono %></td>
+      <td><%= establecimiento.colonia %></td>
+      <td><%= establecimiento.departamento %></td>
+      <td><%= establecimiento.municipio %></td>
+      <td><%= establecimiento.zona %></td>
+      <td><%= establecimiento.calle %></td>
+      <td><%= establecimiento.numero_casa %></td>
+      <td><%= establecimiento.contribuyente.nombre %></td>
+      <!--<td><%= link_to 'Show', establecimiento %></td>-->
+      <td>
+        <%= link_to edit_establecimiento_path(establecimiento) do %>
+        <i class="material-icons">edit</i>
+        <% end %>  
+      </td>
+      <td>
+      <%= link_to establecimiento, method: :delete, data: { confirm: 'Estas seguro/a?' } do %>
+        <i class="material-icons">delete</i>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="actions row">
+  <div class="col s4 offset-s4 center-align">
+    <%= link_to 'Añadir Establecimiento', new_establecimiento_path, class:"btn waves-effect waves-teal" %>
+  </div>
+</div>
