@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :establecimientos
   resources :contribuyentes
   get 'inicio/index'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630164243) do
+ActiveRecord::Schema.define(version: 20170701210858) do
 
   create_table "contribuyentes", force: :cascade do |t|
     t.string   "nit",                limit: 255
@@ -30,4 +30,21 @@ ActiveRecord::Schema.define(version: 20170630164243) do
 
   add_index "contribuyentes", ["nit"], name: "index_contribuyentes_on_nit", unique: true, using: :btree
 
+  create_table "establecimientos", force: :cascade do |t|
+    t.string   "nombre",           limit: 255
+    t.string   "telefono",         limit: 255
+    t.string   "colonia",          limit: 255
+    t.string   "departamento",     limit: 255
+    t.string   "municipio",        limit: 255
+    t.string   "zona",             limit: 255
+    t.string   "calle",            limit: 255
+    t.string   "numero_casa",      limit: 255
+    t.integer  "contribuyente_id", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "establecimientos", ["contribuyente_id"], name: "index_establecimientos_on_contribuyente_id", using: :btree
+
+  add_foreign_key "establecimientos", "contribuyentes"
 end
