@@ -65,7 +65,11 @@
     <div class="row">
       <div class="input-field col s4 offset-s4">
         <%= f.label :tipo_contribuyente %>
-        <%= f.number_field :tipo_contribuyente, required: true %>
+        <select name="contribuyente[tipo_contribuyente]" class="form-control">
+                    <option value=""></option>
+                    <option value="1">Normal</option>
+                    <option value="2">Pequeño contribuyente</option>
+            </select>
       </div>
     </div>
     <div class="actions row">

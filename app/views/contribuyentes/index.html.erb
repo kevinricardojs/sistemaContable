@@ -31,7 +31,13 @@
       <td><%= contribuyente.departamento %></td>
       <td><%= contribuyente.municipio %></td>
       <td><%= contribuyente.telefono %></td>
-      <td><%= contribuyente.tipo_contribuyente %></td>
+      <% if contribuyente.tipo_contribuyente ==  1 %>
+        <td>Normal</td>  
+      <% else %>
+        <td>Pequeño</td>  
+      <% end %>
+      
+      
       <!--<td><%= link_to 'Show', contribuyente %></td>-->
       <td>
         <%= link_to  edit_contribuyente_path(contribuyente) do %>
