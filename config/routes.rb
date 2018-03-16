@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :compras
+  resources :libro_compras
   resources :establecimientos
   resources :contribuyentes
   get 'inicio/index'

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Establecimiento:</strong>
+  <%= @libro_compra.establecimiento %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @libro_compra.mes %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @libro_compra.year %>
+</p>
+
+<%= link_to 'Edit', edit_libro_compra_path(@libro_compra) %> |
+<%= link_to 'Back', libro_compras_path %>

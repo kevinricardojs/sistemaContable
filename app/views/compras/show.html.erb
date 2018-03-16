@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Documento:</strong>
+  <%= @compra.documento %>
+</p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @compra.serie %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @compra.numero %>
+</p>
+
+<p>
+  <strong>Dia:</strong>
+  <%= @compra.dia %>
+</p>
+
+<p>
+  <strong>Proveedor:</strong>
+  <%= @compra.proveedor_id %>
+</p>
+
+<p>
+  <strong>Base:</strong>
+  <%= @compra.base %>
+</p>
+
+<p>
+  <strong>Iva:</strong>
+  <%= @compra.iva %>
+</p>
+
+<p>
+  <strong>Decimal:</strong>
+  <%= @compra.decimal %>
+</p>
+
+<p>
+  <strong>Bienes:</strong>
+  <%= @compra.bienes %>
+</p>
+
+<p>
+  <strong>Servicios:</strong>
+  <%= @compra.servicios %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @compra.total %>
+</p>
+
+<p>
+  <strong>Tipo de gasto:</strong>
+  <%= @compra.tipo_de_gasto_id %>
+</p>
+
+<p>
+  <strong>Libro compras:</strong>
+  <%= @compra.libro_compras %>
+</p>
+
+<%= link_to 'Edit', edit_compra_path(@compra) %> |
+<%= link_to 'Back', compras_path %>

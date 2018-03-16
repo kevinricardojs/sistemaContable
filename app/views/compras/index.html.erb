@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Compras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Documento</th>
+      <th>Serie</th>
+      <th>Numero</th>
+      <th>Dia</th>
+      <th>Proveedor</th>
+      <th>Base</th>
+      <th>Iva</th>
+      <th>Decimal</th>
+      <th>Bienes</th>
+      <th>Servicios</th>
+      <th>Total</th>
+      <th>Tipo de gasto</th>
+      <th>Libro compras</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @compras.each do |compra| %>
+      <tr>
+        <td><%= compra.documento %></td>
+        <td><%= compra.serie %></td>
+        <td><%= compra.numero %></td>
+        <td><%= compra.dia %></td>
+        <td><%= compra.proveedor_id %></td>
+        <td><%= compra.base %></td>
+        <td><%= compra.iva %></td>
+        <td><%= compra.decimal %></td>
+        <td><%= compra.bienes %></td>
+        <td><%= compra.servicios %></td>
+        <td><%= compra.total %></td>
+        <td><%= compra.tipo_de_gasto_id %></td>
+        <td><%= compra.libro_compras %></td>
+        <td><%= link_to 'Show', compra %></td>
+        <td><%= link_to 'Edit', edit_compra_path(compra) %></td>
+        <td><%= link_to 'Destroy', compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Compra', new_compra_path %>

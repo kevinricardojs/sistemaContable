@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170701210858) do
+ActiveRecord::Schema.define(version: 20171222014407) do
+
+  create_table "compras", force: :cascade do |t|
+    t.string   "documento",       limit: 255
+    t.integer  "serie",           limit: 4
+    t.integer  "numero",          limit: 4
+    t.integer  "dia",             limit: 4
+    t.integer  "proveedor_id",    limit: 4
+    t.decimal  "base",                        precision: 10, scale: 2
+    t.decimal  "iva",                         precision: 10, scale: 2
+    t.decimal  "bienes",                      precision: 10, scale: 2
+    t.decimal  "servicios",                   precision: 10, scale: 2
+    t.decimal  "total",                       precision: 10, scale: 2
+    t.integer  "libro_compra_id", limit: 4
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+  end
+
+  add_index "compras", ["libro_compra_id"], name: "index_compras_on_libro_compra_id", using: :btree
 
   create_table "contribuyentes", force: :cascade do |t|
     t.string   "nit",                limit: 255
@@ -46,5 +64,17 @@ ActiveRecord::Schema.define(version: 20170701210858) do
 
   add_index "establecimientos", ["contribuyente_id"], name: "index_establecimientos_on_contribuyente_id", using: :btree
 
+  create_table "libro_compras", force: :cascade do |t|
+    t.integer  "establecimiento_id", limit: 4
+    t.integer  "mes",                limit: 4
+    t.integer  "year",               limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "libro_compras", ["establecimiento_id"], name: "index_libro_compras_on_establecimiento_id", using: :btree
+
+  add_foreign_key "compras", "libro_compras"
   add_foreign_key "establecimientos", "contribuyentes"
+  add_foreign_key "libro_compras", "establecimientos"
 end

@@ -95,10 +95,11 @@
       <p> <i class="material-icons large ">local_library</i></p>
     </div>
     <div class="row">
-      <a href="#" class="col s4 center-align teal darken-3 white-text tooltipped
-      tooltipped waves-effect" data-position="bottom" data-delay="50" data-tooltip="Añadir Compra">
+      <%= link_to new_compra_path, class:"col s4 center-align teal darken-3 white-text tooltipped
+      tooltipped waves-effect", data: {position:"bottom", delay:"50", tooltip:"Añadir Compra"} do %>
       <i class="material-icons small">add_shopping_cart</i>
-    </a>
+      <%end%>
+
     <a href="#" class="col s4 center-align teal darken-3 white-text tooltipped
     tooltipped waves-effect" data-position="bottom" data-delay="50" data-tooltip="Añadir Venta">
     <i class="material-icons small">assignment_return</i>
