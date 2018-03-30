@@ -1,0 +1,38 @@
+<%= form_for(@proveedor) do |f| %>
+<% if @proveedor.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@proveedor.errors.count, "error") %> prohibited this proveedor from being saved:</h2>
+
+  <ul>
+    <% @proveedor.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <div class="row">
+        <div class="input-field col s4 offset-s4">
+          <i class="material-icons prefix">account_circle</i>
+          <%= f.label :nombre %>
+          <%= f.text_field :nombre %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s4 offset-s4">
+        <i class="material-icons prefix">business_center</i>
+          <%= f.label :nit %><br>
+          <%= f.text_field :nit %>
+        </div>
+      </div>
+    </div>
+    <div class="actions row">
+      <div class="col s4 offset-s4 center-align">
+        <%= f.submit class:"btn waves-effect waves-teal", value:"Enviar" %>
+      </div>
+    </div>
+  </div>
+</div>  
+<% end %>

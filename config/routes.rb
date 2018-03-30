@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :proveedors
   resources :compras
   resources :libro_compras
   resources :establecimientos

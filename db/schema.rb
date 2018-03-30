@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171222014407) do
+ActiveRecord::Schema.define(version: 20180317015755) do
 
   create_table "compras", force: :cascade do |t|
     t.string   "documento",       limit: 255
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(version: 20171222014407) do
   end
 
   add_index "libro_compras", ["establecimiento_id"], name: "index_libro_compras_on_establecimiento_id", using: :btree
+
+  create_table "proveedors", force: :cascade do |t|
+    t.string   "nombre",     limit: 255
+    t.string   "nit",        limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   add_foreign_key "compras", "libro_compras"
   add_foreign_key "establecimientos", "contribuyentes"

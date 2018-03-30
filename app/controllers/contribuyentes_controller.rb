@@ -28,7 +28,7 @@ class ContribuyentesController < ApplicationController
 
     respond_to do |format|
       if @contribuyente.save
-        format.html { redirect_to @contribuyente, notice: 'Contribuyente was successfully created.' }
+        format.html { redirect_to contribuyentes_path, notice: 'Contribuyente was successfully created.' }
         format.json { render :show, status: :created, location: @contribuyente }
       else
         format.html { render :new }

@@ -29,7 +29,7 @@ class EstablecimientosController < ApplicationController
 
     respond_to do |format|
       if @establecimiento.save
-        format.html { redirect_to @establecimiento, notice: 'Establecimiento was successfully created.' }
+        format.html { redirect_to establecimientos_path, notice: 'Establecimiento was successfully created.' }
         format.json { render :show, status: :created, location: @establecimiento }
       else
         format.html { render :new }
