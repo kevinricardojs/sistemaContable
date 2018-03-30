@@ -34,12 +34,6 @@
   <strong>Iva:</strong>
   <%= @compra.iva %>
 </p>
-
-<p>
-  <strong>Decimal:</strong>
-  <%= @compra.decimal %>
-</p>
-
 <p>
   <strong>Bienes:</strong>
   <%= @compra.bienes %>
@@ -57,7 +51,7 @@
 
 <p>
   <strong>Tipo de gasto:</strong>
-  <%= @compra.tipo_de_gasto_id %>
+  <%= TipoDeGasto.find(@compra.tipo_de_gasto_id).nombre %>
 </p>
 
 <p>

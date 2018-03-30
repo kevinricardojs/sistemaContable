@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tipo_de_gastos
   resources :proveedors
   resources :compras
   resources :libro_compras
