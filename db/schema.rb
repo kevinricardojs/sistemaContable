@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330164306) do
+ActiveRecord::Schema.define(version: 20180330230532) do
 
   create_table "compras", force: :cascade do |t|
     t.string   "documento",        limit: 255
@@ -76,6 +76,16 @@ ActiveRecord::Schema.define(version: 20180330164306) do
 
   add_index "libro_compras", ["establecimiento_id"], name: "index_libro_compras_on_establecimiento_id", using: :btree
 
+  create_table "libro_ventas", force: :cascade do |t|
+    t.integer  "establecimiento_id", limit: 4
+    t.integer  "mes",                limit: 4
+    t.integer  "year",               limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "libro_ventas", ["establecimiento_id"], name: "index_libro_ventas_on_establecimiento_id", using: :btree
+
   create_table "proveedors", force: :cascade do |t|
     t.string   "nombre",     limit: 255
     t.string   "nit",        limit: 255
@@ -91,8 +101,45 @@ ActiveRecord::Schema.define(version: 20180330164306) do
 
   add_index "tipo_de_gastos", ["nombre"], name: "index_tipo_de_gastos_on_nombre", unique: true, using: :btree
 
+  create_table "venta", force: :cascade do |t|
+    t.string   "documento",  limit: 255
+    t.string   "serie",      limit: 255
+    t.integer  "numero",     limit: 4
+    t.integer  "dia",        limit: 4
+    t.string   "nit",        limit: 255,                          default: "C/F"
+    t.string   "nombre",     limit: 255,                          default: "Clientes Varios"
+    t.decimal  "bienes",                 precision: 10, scale: 2
+    t.decimal  "servicios",              precision: 10, scale: 2
+    t.decimal  "base",                   precision: 10, scale: 2
+    t.decimal  "iva",                    precision: 10, scale: 2
+    t.decimal  "total",                  precision: 10, scale: 2
+    t.datetime "created_at",                                                                  null: false
+    t.datetime "updated_at",                                                                  null: false
+  end
+
+  create_table "ventas", force: :cascade do |t|
+    t.string   "documento",      limit: 255
+    t.string   "serie",          limit: 255
+    t.integer  "numero",         limit: 4
+    t.integer  "dia",            limit: 4
+    t.string   "nit",            limit: 255,                          default: "C/F"
+    t.string   "nombre",         limit: 255,                          default: "Clientes Varios"
+    t.decimal  "bienes",                     precision: 10, scale: 2
+    t.decimal  "servicios",                  precision: 10, scale: 2
+    t.decimal  "base",                       precision: 10, scale: 2
+    t.decimal  "iva",                        precision: 10, scale: 2
+    t.decimal  "total",                      precision: 10, scale: 2
+    t.datetime "created_at",                                                                      null: false
+    t.datetime "updated_at",                                                                      null: false
+    t.integer  "libro_venta_id", limit: 4
+  end
+
+  add_index "ventas", ["libro_venta_id"], name: "index_ventas_on_libro_venta_id", using: :btree
+
   add_foreign_key "compras", "libro_compras"
   add_foreign_key "compras", "tipo_de_gastos"
   add_foreign_key "establecimientos", "contribuyentes"
   add_foreign_key "libro_compras", "establecimientos"
+  add_foreign_key "libro_ventas", "establecimientos"
+  add_foreign_key "ventas", "libro_ventas"
 end

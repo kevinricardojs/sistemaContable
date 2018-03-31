@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Libro Ventas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Establecimiento</th>
+      <th>Mes</th>
+      <th>Year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @libro_ventas.each do |libro_venta| %>
+      <tr>
+        <td><%= libro_venta.establecimiento %></td>
+        <td><%= libro_venta.mes %></td>
+        <td><%= libro_venta.year %></td>
+        <td><%= link_to 'Show', libro_venta %></td>
+        <td><%= link_to 'Edit', edit_libro_venta_path(libro_venta) %></td>
+        <td><%= link_to 'Destroy', libro_venta, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Libro venta', new_libro_venta_path %>

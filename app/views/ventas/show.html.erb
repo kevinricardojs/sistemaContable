@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Documento:</strong>
+  <%= @venta.documento %>
+</p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @venta.serie %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @venta.numero %>
+</p>
+
+<p>
+  <strong>Dia:</strong>
+  <%= @venta.dia %>
+</p>
+
+<p>
+  <strong>Nit:</strong>
+  <%= @venta.nit %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @venta.nombre %>
+</p>
+
+<p>
+  <strong>Bienes:</strong>
+  <%= @venta.bienes %>
+</p>
+
+<p>
+  <strong>Servicios:</strong>
+  <%= @venta.servicios %>
+</p>
+
+<p>
+  <strong>Base:</strong>
+  <%= @venta.base %>
+</p>
+
+<p>
+  <strong>Iva:</strong>
+  <%= @venta.iva %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @venta.total %>
+</p>
+
+<%= link_to 'Edit', edit_venta_path(@venta) %> |
+<%= link_to 'Back', ventas_path %>

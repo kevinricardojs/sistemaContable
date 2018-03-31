@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  documento: MyString
+  serie: MyString
+  numero: 1
+  dia: 1
+  nit: MyString
+  nombre: MyString
+  bienes: 9.99
+  servicios: 9.99
+  base: 9.99
+  iva: 9.99
+  total: 9.99
+
+two:
+  documento: MyString
+  serie: MyString
+  numero: 1
+  dia: 1
+  nit: MyString
+  nombre: MyString
+  bienes: 9.99
+  servicios: 9.99
+  base: 9.99
+  iva: 9.99
+  total: 9.99

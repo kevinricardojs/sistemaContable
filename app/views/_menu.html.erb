@@ -99,11 +99,10 @@
       tooltipped waves-effect", data: {position:"bottom", delay:"50", tooltip:"Añadir Compra"} do %>
       <i class="material-icons small">add_shopping_cart</i>
       <%end%>
-
-    <a href="#" class="col s4 center-align teal darken-3 white-text tooltipped
-    tooltipped waves-effect" data-position="bottom" data-delay="50" data-tooltip="Añadir Venta">
-    <i class="material-icons small">assignment_return</i>
-  </a>
+      <%= link_to new_venta_path, class:"col s4 center-align teal darken-3 white-text tooltipped
+      tooltipped waves-effect", data: {position:"bottom", delay:"50", tooltip:"Añadir Venta"} do %>
+      <i class="material-icons small">assignment_return</i>
+      <%end%>
   <a href="#" class="col s4 center-align teal darken-3 white-text tooltipped
   tooltipped waves-effect" data-position="bottom" data-delay="50" data-tooltip="Partidas de Ajuste">
   <i class="material-icons small">low_priority</i>

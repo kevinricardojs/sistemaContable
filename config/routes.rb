@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :libro_ventas
+  resources :ventas
   resources :tipo_de_gastos
   resources :proveedors
   resources :compras
