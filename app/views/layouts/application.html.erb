@@ -15,17 +15,40 @@
 			<i class="material-icons">home</i> Inicio
 			<%end%>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="sass.html" class="waves-effect waves-light">Sass</a></li>
-				<li><a href="badges.html" class="waves-effect waves-light">Components</a></li>
-				<li><a href="collapsible.html" class="waves-effect waves-light">JavaScript</a></li>
-			</ul>
-		</div>
-	</nav>
+				<%if usuario_signed_in? %>
+				<li>
+					<a href="#" class="waves-effect waves-light"><%= @l_ventas.nil?%></a>
+				</li>
+				<li>
+					<a href="#" class="waves-effect waves-light"><%= contribuyente %></a>
+				</li>
+				<li>
+					<a href="#" class="waves-effect waves-light"><%= establecimiento %></a>
+				</li>
+				<li>
+					<a href="#" class="waves-effect waves-light"><%= mes %></a>
+				</li>
+				<li>
+					<a href="#" class="waves-effect waves-light"><%= current_usuario.config.year == 0 || current_usuario.config.year.nil? ? "Año" : current_usuario.config.year %></a>
+				</li>
+				
+				<li>
+					<a id="dialog-edit-btn" class="mdl-button mdl-js-button mdl-button--accent">
+						<i class="material-icons">edit</i>
+					</a>
+					<%= render '/dialog'%>
+						</li>
 
-	<div class="container">
+						<li><%= link_to "Cerrar Sesion", destroy_usuario_session_path, :method => :delete, class:"waves-effect waves-light"%></li>
+						<%end%>
+					</ul>
+				</div>
+			</nav>
 
-		<%= yield %>
-	</div>
+			<div class="container">
 
-</body>
-</html>
+				<%= yield %>
+			</div>
+
+		</body>
+		</html>

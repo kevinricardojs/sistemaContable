@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require dialog-polyfill
 //= require materialize
 //= require materialize-sprockets
 //= require materialize/extras/nouislider

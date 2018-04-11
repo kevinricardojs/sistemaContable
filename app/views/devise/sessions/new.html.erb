@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col offset-s3 s6 center-align">
+	<h2>Iniciar Sesión</h2>
+
+		<%= simple_form_for(resource, as: resource_name, autocomplete:"off", url: session_path(resource_name)) do |f| %>
+		<div class="form-inputs">
+
+			<div class="row">
+				<div class="input-field col s12">
+					<%= f.label "Email"%>
+					<%= f.text_field :email, required: false, autofocus: true, autocomplete:false %>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="input-field col s12">
+					<%= f.label  "Contraseña"%>
+					<%= f.password_field :password, required: false %>
+				</div>
+			</div>
+	<!--
+	<div class="row">
+		<label class="boolean optional checkbox mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="usuario_remember_me">
+			<input type="checkbox" id="usuario_remember_me" class="boolean optional mdl-checkbox__input"  value=1 name="usuario[remember_me]">
+			<span class="mdl-checkbox__label">Recordarme</span>
+		</label>
+	</div>
+	<div class="row">
+		<div class="col ">
+			<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+		</div>
+	</div>-->
+	<div class="form-actions row">
+		<div class="input-field col s12">
+			<%= f.button :submit, "Ingresar" %>
+		</div>
+	</div>
+</div>
+</div>
+
+
+</div>
+<% end %>
+
+<%= render "devise/shared/links" %>

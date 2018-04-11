@@ -15,7 +15,7 @@
   <tbody>
     <% @libro_compras.each do |libro_compra| %>
       <tr>
-        <td><%= libro_compra.establecimiento %></td>
+        <td><%= libro_compra.establecimiento.nombre %></td>
         <td><%= libro_compra.mes %></td>
         <td><%= libro_compra.year %></td>
         <td><%= link_to 'Show', libro_compra %></td>

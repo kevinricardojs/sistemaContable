@@ -1,5 +1,6 @@
 class LibroComprasController < ApplicationController
   before_action :set_libro_compra, only: [:show, :edit, :update, :destroy]
+  before_action :set_compras
 
   # GET /libro_compras
   # GET /libro_compras.json
@@ -71,4 +72,13 @@ class LibroComprasController < ApplicationController
     def libro_compra_params
       params.require(:libro_compra).permit(:establecimiento_id, :mes, :year)
     end
-end
+
+    def set_compras
+      @iva = @libro_compra.compras.sum(:iva)
+      @base = @libro_compra.compras.sum(:base)
+      @compras_por_dia = @libro_compra.compras.order(:dia)
+      @total = @base + @iva
+      @total_cuentas = @libro_compra.compras.count
+
+    end
+  end

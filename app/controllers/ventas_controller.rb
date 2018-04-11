@@ -1,5 +1,6 @@
 class VentasController < ApplicationController
-  before_action :set_venta, only: [:show, :edit, :update, :destroy]
+  before_action :set_venta, only: [:edit, :update, :destroy]
+  before_action :l_ventas_valid
 
   # GET /ventas
   # GET /ventas.json
@@ -25,14 +26,13 @@ class VentasController < ApplicationController
   # POST /ventas.json
   def create
     @venta = Venta.new(venta_params)
+    @venta.libro_venta_id = @l_ventas.id
 
     respond_to do |format|
       if @venta.save
-        format.html { redirect_to @venta, notice: 'Venta was successfully created.' }
-        format.json { render :show, status: :created, location: @venta }
+        format.html { redirect_to new_venta_path, notice: 'Venta was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @venta.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +42,9 @@ class VentasController < ApplicationController
   def update
     respond_to do |format|
       if @venta.update(venta_params)
-        format.html { redirect_to @venta, notice: 'Venta was successfully updated.' }
-        format.json { render :show, status: :ok, location: @venta }
+        format.html { redirect_to @l_ventas, notice: 'Venta was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @venta.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,8 +54,7 @@ class VentasController < ApplicationController
   def destroy
     @venta.destroy
     respond_to do |format|
-      format.html { redirect_to ventas_url, notice: 'Venta was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to new_venta_path, notice: 'Venta was successfully destroyed.' }
     end
   end
 
@@ -69,6 +66,12 @@ class VentasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def venta_params
-      params.require(:venta).permit(:documento, :serie, :numero, :dia, :nit, :nombre, :bienes, :servicios, :base, :iva, :total)
+      params.require(:venta).permit(:documento, :serie, :numero, :dia, :nit, :nombre, :bienes, :servicios, :base, :iva, :total, :libr_venta_id)
+    end
+
+    def l_ventas_valid
+      if @l_ventas == nil
+        redirect_to :root, alert: "No has completado correctamente la configuración para añadir Ventas"
+      end
     end
 end

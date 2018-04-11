@@ -1,11 +1,12 @@
 <%= form_for(@compra) do |f| %>
 <% if @compra.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@compra.errors.count, "error") %> prohibited this compra from being saved:</h2>
+<div class="card-panel">
+
+  <p class="cyan-text text-darken-4">No se puede guardar la información:</p>
 
   <ul>
     <% @compra.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+    <li class="red-text -text-darken-4"><%= message %></li>
     <% end %>
   </ul>
 </div>
@@ -15,25 +16,25 @@
   <div class="input-field col s2 offset-s2">
     <i class="material-icons prefix">receipt</i>
     <%= f.label :documento %>
-    <%= f.text_field :documento %>
+    <%= f.text_field :documento, required:true %>
   </div>
 
   <div class="input-field col s2">
     <i class="material-icons prefix">list</i>
     <%= f.label :serie %>
-    <%= f.number_field :serie %>
+    <%= f.text_field :serie, required:true %>
   </div>
 
   <div class="input-field col s2">
     <i class="material-icons prefix">format_list_numbered</i>
     <%= f.label :numero %>
-    <%= f.number_field :numero %>
+    <%= f.number_field :numero, required:true, min:1 %>
   </div>
 
   <div class="input-field col s2">
     <i class="material-icons prefix">date_range</i>
     <%= f.label :dia %>
-    <%= f.number_field :dia %>
+    <%= f.number_field :dia, required:true, min:1, max: max_mes %>
   </div>
 
   <div class="input-field col s4">
@@ -56,18 +57,18 @@
 
   <div class="row">
     <div class="col s4 offset-s1 center-align">
-    <h2>Valor</h2>  
-  </div>
+      <h2>Valor</h2>  
+    </div>
   </div>
 
   <div class="row">
     <div class="input-field col s4 offset-s2">
       <%= f.label :bienes %>
-      <%= f.text_field :bienes, placeholder: "Q0.00" %>
+      <%= f.number_field :bienes, placeholder: "Q0.00", step:0.01, min:0.01  %>
     </div>
     <div class="input-field col s4">
       <%= f.label :servicios %>
-      <%= f.text_field :servicios, placeholder:"Q0.00" %>
+      <%= f.number_field :servicios, placeholder:"Q0.00", step:0.01, min:0.01  %>
     </div>
   </div>
 

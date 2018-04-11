@@ -20,6 +20,7 @@ class EstablecimientosController < ApplicationController
 
   # GET /establecimientos/1/edit
   def edit
+    @contribuyentes = Contribuyente.all
   end
 
   # POST /establecimientos

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  post 'peticion_json/contribuyentes'
+  post 'peticion_json/establecimientos'
+  post 'peticion_json/proveedores'
+  post 'peticion_json/tipos_de_gastos'
+  devise_for :usuarios, controllers: {registrations: "registrations"}
+  resources :configs, only: :update
   resources :libro_ventas
   resources :ventas
   resources :tipo_de_gastos
@@ -8,6 +14,7 @@ Rails.application.routes.draw do
   resources :establecimientos
   resources :contribuyentes
   get 'inicio/index'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

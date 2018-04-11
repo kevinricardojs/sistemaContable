@@ -1,5 +1,6 @@
 class ComprasController < ApplicationController
-  before_action :set_compra, only: [:show, :edit, :update, :destroy]
+  before_action :set_compra, only: [:edit, :update, :destroy]
+  before_action :l_compras_valid
 
   # GET /compras
   # GET /compras.json
@@ -25,12 +26,11 @@ class ComprasController < ApplicationController
   # POST /compras.json
   def create
     @compra = Compra.new(compra_params)
-
+    @compra.libro_compra_id = @l_compras.id
     respond_to do |format|
       if @compra.save
-        format.html { redirect_to @compra, notice: 'Compra was successfully created.' }
-        format.json { render :show, status: :created, location: @compra }
-      else
+        format.html { redirect_to new_compra_path, notice: 'Compra was successfully created.' }
+        else
         format.html { render :new }
         format.json { render json: @compra.errors, status: :unprocessable_entity }
       end
@@ -42,8 +42,7 @@ class ComprasController < ApplicationController
   def update
     respond_to do |format|
       if @compra.update(compra_params)
-        format.html { redirect_to @compra, notice: 'Compra was successfully updated.' }
-        format.json { render :show, status: :ok, location: @compra }
+        format.html { redirect_to @l_compras, notice: 'Compra was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @compra.errors, status: :unprocessable_entity }
@@ -56,7 +55,7 @@ class ComprasController < ApplicationController
   def destroy
     @compra.destroy
     respond_to do |format|
-      format.html { redirect_to compras_url, notice: 'Compra was successfully destroyed.' }
+      format.html { redirect_to @l_compras, notice: 'Compra was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +68,12 @@ class ComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def compra_params
-      params.require(:compra).permit(:documento, :serie, :numero, :dia, :proveedor_nit, :proveedor_nombre  , :base, :iva, :bienes, :servicios, :total, :tipo_de_gasto, :libro_compras_id)
+      params.require(:compra).permit(:documento, :serie, :numero, :dia, :proveedor_nit, :proveedor_nombre  , :base, :iva, :bienes, :servicios, :total, :tipo_de_gasto, :libro_compra_id)
+    end
+
+    def l_compras_valid
+      if @l_compras == nil
+        redirect_to :root, alert: "No has completado correctamente la configuración para añadir Compras"
+      end
     end
 end

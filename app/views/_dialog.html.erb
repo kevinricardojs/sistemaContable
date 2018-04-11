@@ -1,0 +1,60 @@
+<dialog id="dialog-edit" class="mdl-dialog">
+	<%= form_for(current_usuario.config) do |f| %>
+		<h4 class="mdl-dialog__title">Configuración Actual </h4>
+		<div class="mdl-dialog__content">
+			<div class=" " id="list-contribuyentes">
+				<%= f.label :contribuyente_id, "Nit (*)" %>
+				<select name="config[contribuyente_id]" id="select_contribuyentes" class="borrar-option no-select select-dropdown" >
+					<option disabled selected> Selecciona una opción</option>
+				</select>
+			</div>
+
+			<div class=" " id="list-establecimientos">
+				<%= label :contribuyente_id, "Establecimiento (*)" %>
+				<select name="config[establecimiento_id]" id="select_establecimientos" class="borrar-option no-select select-dropdown" >
+					<option disabled selected> Selecciona una opción</option>
+				</select>
+			</div>
+
+			<div class="" >
+				<%= label :mes, "Mes a trabajar" %>
+				<select name="config[mes]" class="form-control no-select select-dropdown">
+					<option value="Selecciona un Mes">Selecciona un mes</option>
+					<option value="1">Enero</option>
+					<option value="2">Febrero</option>
+					<option value="3">Marzo</option>
+					<option value="4">Abril</option>
+					<option value="5">Mayo</option>
+					<option value="6">Junio</option>
+					<option value="7">Julio</option>
+					<option value="8">Agosto</option>
+					<option value="9">Septiembre</option>
+					<option value="10">Octubre</option>
+					<option value="11">Noviembre</option>
+					<option value="12">Diciembre</option>
+				</select>
+			</div>
+			<div class="">
+				<%= label :year,"Año"%>
+				<select name="config[year]" class="form-control no-select select-dropdown">
+					<option value="Selecciona un Año">Selecciona un año</option>
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+					<option value="2018">2018</option>
+					<option value="2019">2019</option>
+					<option value="2020">2020</option>
+					<option value="2015">2021</option>
+				</select>
+			</div>
+			<div class=" ">
+				<%= f.submit class:"mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary", value:"Configurar" %>	
+			</div>
+
+
+		</div>
+	<%end%>
+	<div class="mdl-dialog__actions--full-width">
+		<button class="mdl-button close">Cerrar</button>
+	</div>
+	
+</dialog>

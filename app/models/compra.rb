@@ -1,14 +1,24 @@
 class Compra < ActiveRecord::Base
+  before_validation :total
   before_validation :base_iva
   before_validation :self_proveedor_id
   before_validation :self_tipo_de_gasto
-
-
+  
 
   attr_accessor :proveedor_nit
   attr_accessor :proveedor_nombre
   attr_accessor :tipo_de_gasto
 
+  #Validaciones
+  validates :documento , presence: true
+  validates :serie, presence: true
+  validates :numero, presence: true, numericality:true
+  validates :dia, presence: true, numericality:true
+  validates :proveedor_id, presence: true
+  validates :tipo_de_gasto_id, presence: true
+  validates :total, numericality: { greater_than: 0, message:": debes ingresar cantidades validas en bienes y/o servicios" }
+
+  #Asociaciones
   belongs_to :proveedor
   belongs_to :libro_compras
   belongs_to :tipo_de_gasto
@@ -47,7 +57,7 @@ class Compra < ActiveRecord::Base
 
   def base_iva
     #if self.libro_c.establecimiento.contribuyente.t_contribuyente == "normal"
-      suma = self.bienes.to_f + self.servicios.to_f
+      suma = self.total
       self.base = (suma.to_f / 1.12).round(2)
       self.iva = (self.base.to_f * 0.12).round(2)
     #else

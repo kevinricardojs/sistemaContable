@@ -2,7 +2,7 @@
 
 <p>
   <strong>Establecimiento:</strong>
-  <%= @libro_venta.establecimiento %>
+  <%= @libro_venta.establecimiento.nombre %>
 </p>
 
 <p>
@@ -14,6 +14,54 @@
   <strong>Year:</strong>
   <%= @libro_venta.year %>
 </p>
+<table class="highlight">
+  <thead>
+    <tr>
+      <th colspan="7"></th>
+      <th colspan="2" class="center-align">Valor</th>
+      <th colspan="3"></th>
+    </tr>
+    <tr>
+      <th>Doc</th>
+      <th>Serie</th>
+      <th>Numero</th>
+      <th>Nit</th>
+      <th>Nombre</th>
+      <th>Base</th>
+      <th>Iva</th>
+      <th>Bienes</th>
+      <th>Servicios</th>
+      <th>Total</th>
+      <th colspan="2" class="center-align">Acciones</th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_libro_venta_path(@libro_venta) %> |
-<%= link_to 'Back', libro_ventas_path %>
+  <tbody>
+    <% @libro_venta.ventas.each do |venta| %>
+    <tr class="no-border-top">
+      <td><%= venta.documento %></td>
+      <td><%= venta.serie %></td>
+      <td><%= venta.numero %></td>
+      <td><%= venta.nit %></td>
+      <td><%= venta.nombre %></td>
+      <td><%= venta.base %></td>
+      <td><%= venta.iva %></td>
+      <td><%= venta.bienes %></td>
+      <td><%= venta.servicios %></td>
+      <td><%= venta.total %></td>
+      <td class="">
+        <%= link_to content_tag(:i ,'edit',class:"material-icons"), edit_venta_path(venta) ,class:"teal-text text-darken-3" %>
+      </td>
+      <td class="">
+        <%= link_to content_tag(:i ,'delete_forever',class:"material-icons"), venta, method: :delete, data: { confirm: 'Estas seguro?' },class:"red-text text-darken-4" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to new_venta_path, class:"waves-effect waves-light btn cyan darken-4 btn-floating" do %>
+	<i class="material-icons left">arrow_back</i>
+<%end%>
+
