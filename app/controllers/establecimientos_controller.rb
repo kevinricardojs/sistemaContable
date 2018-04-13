@@ -26,6 +26,7 @@ class EstablecimientosController < ApplicationController
   # POST /establecimientos
   # POST /establecimientos.json
   def create
+    @contribuyentes = Contribuyente.all
     @establecimiento = Establecimiento.new(establecimiento_params)
 
     respond_to do |format|

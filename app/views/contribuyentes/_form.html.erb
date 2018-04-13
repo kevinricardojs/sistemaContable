@@ -1,11 +1,12 @@
 <%= form_for(@contribuyente) do |f| %>
 <% if @contribuyente.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@contribuyente.errors.count, "error") %> prohibited this contribuyente from being saved:</h2>
+<div class="card-panel">
+
+  <p class="cyan-text text-darken-4">No se puede guardar la información:</p>
 
   <ul>
     <% @contribuyente.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+    <li class="red-text -text-darken-4"><%= message %></li>
     <% end %>
   </ul>
 </div>
@@ -59,7 +60,7 @@
       </div>
       <div class="input-field col s2">
         <%= f.label :zona %>
-        <%= f.number_field :zona, required: true %>
+        <%= f.number_field :zona, required: true, min:0 %>
       </div>
     </div>
     <div class="row">

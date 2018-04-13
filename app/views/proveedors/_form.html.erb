@@ -1,11 +1,12 @@
 <%= form_for(@proveedor) do |f| %>
 <% if @proveedor.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@proveedor.errors.count, "error") %> prohibited this proveedor from being saved:</h2>
+<div class="card-panel">
+
+  <p class="cyan-text text-darken-4">No se puede guardar la información:</p>
 
   <ul>
     <% @proveedor.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+    <li class="red-text -text-darken-4"><%= message %></li>
     <% end %>
   </ul>
 </div>
@@ -17,14 +18,14 @@
         <div class="input-field col s4 offset-s4">
           <i class="material-icons prefix">account_circle</i>
           <%= f.label :nombre %>
-          <%= f.text_field :nombre %>
+          <%= f.text_field :nombre, autofocus: true, required:true %>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s4 offset-s4">
         <i class="material-icons prefix">business_center</i>
           <%= f.label :nit %><br>
-          <%= f.text_field :nit %>
+          <%= f.text_field :nit, required:true %>
         </div>
       </div>
     </div>
